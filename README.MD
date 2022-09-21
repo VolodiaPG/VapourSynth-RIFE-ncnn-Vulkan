@@ -1,5 +1,3 @@
-vs-rife as a filter using cuda on Nixos
-
 ```shell
 # To enter the environment
 nix develop
