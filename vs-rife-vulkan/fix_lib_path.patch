@@ -1,0 +1,20 @@
+--- VapourSynth-RIFE-ncnn-Vulkan/meson.build
++++ VapourSynth-RIFE-ncnn-Vulkan/meson.build
+@@ -22,7 +22,7 @@
+ if gcc_syntax
+   vapoursynth_dep = dependency('vapoursynth', version: '>=55').partial_dependency(compile_args: true, includes: true)
+   deps += vapoursynth_dep
+-  install_dir = vapoursynth_dep.get_variable(pkgconfig: 'libdir') / 'vapoursynth'
++  install_dir = get_option('libdir') / 'vapoursynth'
+ else
+   add_project_arguments('/DNOMINMAX', language: 'cpp')
+   install_dir = get_option('libdir') / 'vapoursynth'
+@@ -49,6 +49,7 @@
+   opt_var.add_cmake_defines({'NCNN_AVX512': false})
+   opt_var.add_cmake_defines({'NCNN_AVX512VNNI': false})
+   opt_var.add_cmake_defines({'NCNN_XOP': false})
++  opt_var.add_cmake_defines({'NCNN_DISABLE_RTTI': false})
+ 
+   opt_var.add_cmake_defines({'WITH_LAYER_absval': false})
+   opt_var.add_cmake_defines({'WITH_LAYER_argmax': false})
+
